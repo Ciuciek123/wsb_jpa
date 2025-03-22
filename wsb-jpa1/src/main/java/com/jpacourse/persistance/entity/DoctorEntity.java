@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -38,4 +40,6 @@ public class DoctorEntity {
 	@JoinColumn(nullable = false, name = "ADDRESS_ID")
 	private AddressEntity address;
 
+	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<VisitEntity> visits;
 }

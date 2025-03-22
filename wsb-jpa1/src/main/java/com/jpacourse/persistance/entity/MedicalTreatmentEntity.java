@@ -22,6 +22,7 @@ public class MedicalTreatmentEntity {
 	@Enumerated(EnumType.STRING)
 	private TreatmentType type;
 
-
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "VISIT_ID")
+	private VisitEntity visit;
 }
