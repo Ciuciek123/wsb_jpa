@@ -25,17 +25,17 @@ INSERT INTO doctor (first_name, last_name, telephone_number, email, doctor_numbe
 
 
 
-INSERT INTO Patient (first_Name, last_Name, telephone_Number, email, patient_Number, date_Of_Birth, address_id) VALUES
-                                                                                                              ('Adam', 'Kowalski', '111111111', 'adam.kowalski@example.com', 'P001', '1985-03-12', 1),
-                                                                                                              ('Barbara', 'Nowak', '222222222', 'barbara.nowak@example.com', 'P002', '1990-07-25', 2),
-                                                                                                              ('Cezary', 'Wiśniewski', '333333333', 'cezary.wisniewski@example.com', 'P003', '1978-11-05', 3),
-                                                                                                              ('Dorota', 'Dąbrowska', '444444444', 'dorota.dabrowska@example.com', 'P004', '2000-01-18', 4),
-                                                                                                              ('Eugeniusz', 'Lewandowski', '555555555', 'eugeniusz.lewandowski@example.com', 'P005', '1965-05-30', 5),
-                                                                                                              ('Filip', 'Zieliński', '666666666', 'filip.zielinski@example.com', 'P006', '1988-09-22', 6),
-                                                                                                              ('Gabriela', 'Wójcik', '777777777', 'gabriela.wojcik@example.com', 'P007', '1995-06-10', 7),
-                                                                                                              ('Hanna', 'Kamińska', '888888888', 'hanna.kaminska@example.com', 'P008', '1983-12-15', 8),
-                                                                                                              ('Igor', 'Jankowski', '999999999', 'igor.jankowski@example.com', 'P009', '1972-04-28', 9),
-                                                                                                              ('Julia', 'Mazur', '000000000', 'julia.mazur@example.com', 'P010', '1999-02-07', 10);
+INSERT INTO Patient (first_Name, last_Name, telephone_Number, email, patient_Number, date_Of_Birth, address_id, treatment_package) VALUES
+                                                                                                              ('Adam', 'Kowalski', '111111111', 'adam.kowalski@example.com', 'P001', '1985-03-12', 1, 'FREE'),
+                                                                                                              ('Barbara', 'Nowak', '222222222', 'barbara.nowak@example.com', 'P002', '1990-07-25', 2, 'VIP'),
+                                                                                                              ('Cezary', 'Wiśniewski', '333333333', 'cezary.wisniewski@example.com', 'P003', '1978-11-05', 3, 'NORMAL'),
+                                                                                                              ('Dorota', 'Dąbrowska', '444444444', 'dorota.dabrowska@example.com', 'P004', '2000-01-18', 4, 'FREE'),
+                                                                                                              ('Eugeniusz', 'Lewandowski', '555555555', 'eugeniusz.lewandowski@example.com', 'P005', '1965-05-30', 5, 'FREE'),
+                                                                                                              ('Filip', 'Zieliński', '666666666', 'filip.zielinski@example.com', 'P006', '1988-09-22', 6, 'NORMAL'),
+                                                                                                              ('Gabriela', 'Wójcik', '777777777', 'gabriela.wojcik@example.com', 'P007', '1995-06-10', 7, 'FREE'),
+                                                                                                              ('Hanna', 'Kamińska', '888888888', 'hanna.kaminska@example.com', 'P008', '1983-12-15', 8, 'NORMAL'),
+                                                                                                              ('Igor', 'Jankowski', '999999999', 'igor.jankowski@example.com', 'P009', '1972-04-28', 9, 'FREE'),
+                                                                                                              ('Julia', 'Mazur', '000000000', 'julia.mazur@example.com', 'P010', '1999-02-07', 10, 'NORMAL');
 
 
 INSERT INTO Visit (description, time, doctor_id, patient_id) VALUES

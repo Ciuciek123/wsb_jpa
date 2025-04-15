@@ -3,6 +3,7 @@ package com.jpacourse.persistance.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.jpacourse.persistance.enums.TreatmentPackage;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,10 +35,13 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
+	@Enumerated(EnumType.STRING)
+	private TreatmentPackage treatmentPackage ;
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(nullable = false, name = "ADDRESS_ID")
 	private AddressEntity address;
 
-	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<VisitEntity> visits;
 }
