@@ -42,7 +42,7 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
     public List<PatientEntity> findByLastName(String lastName){
 
 
-        return entityManager.createQuery("SELECT p FROM Patient p WHERE p.lastName = :lastNameParam", PatientEntity.class)
+        return entityManager.createQuery("SELECT p FROM PatientEntity p WHERE p.lastName = :lastNameParam", PatientEntity.class)
                 .setParameter("lastNameParam", lastName)
                 .getResultList();
 
@@ -50,14 +50,14 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
     }
 
     public List<VisitEntity> findVisits(String id){
-        return entityManager.createQuery("SELECT p.visits FROM Patient p WHERE p.id = :idParam", VisitEntity.class)
+        return entityManager.createQuery("SELECT p.visits FROM PatientEntity p WHERE p.id = :idParam", VisitEntity.class)
                 .setParameter("idParam", id)
                 .getResultList();
     }
 
     public List<PatientEntity> findPatientsWithMoreVisits(String number){
         return entityManager.createQuery(
-                        "SELECT p FROM Patient p JOIN p.visits v GROUP BY p HAVING COUNT(v) > :minVisits", PatientEntity.class)
+                        "SELECT p FROM PatientEntity p JOIN p.visits v GROUP BY p HAVING COUNT(v) > :minVisits", PatientEntity.class)
                 .setParameter("minVisits", number)
                 .getResultList();
     }
@@ -65,7 +65,7 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
     public List<PatientEntity> indPatientsWithTreatmentPackageAbove(TreatmentPackage selected){
 
         return entityManager.createQuery(
-                        "SELECT p FROM Patient p WHERE p.treatmentPackage > :selected", PatientEntity.class)
+                        "SELECT p FROM PatientEntity p WHERE p.treatmentPackage > :selected", PatientEntity.class)
                 .setParameter("selected", selected)
                 .getResultList();
 
