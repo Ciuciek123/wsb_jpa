@@ -4,11 +4,13 @@ import com.jpacourse.persistance.dao.PatientDao;
 import com.jpacourse.persistance.entity.DoctorEntity;
 import com.jpacourse.persistance.entity.PatientEntity;
 import com.jpacourse.persistance.entity.VisitEntity;
+import com.jpacourse.persistance.enums.TreatmentPackage;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Repository
 public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements PatientDao
@@ -36,4 +38,37 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
 
 
     }
+
+    public List<PatientEntity> findByLastName(String lastName){
+
+
+        return entityManager.createQuery("SELECT p FROM Patient p WHERE p.lastName = :lastNameParam", PatientEntity.class)
+                .setParameter("lastNameParam", lastName)
+                .getResultList();
+
+
+    }
+
+    public List<VisitEntity> findVisits(String id){
+        return entityManager.createQuery("SELECT p.visits FROM Patient p WHERE p.id = :idParam", VisitEntity.class)
+                .setParameter("idParam", id)
+                .getResultList();
+    }
+
+    public List<PatientEntity> findPatientsWithMoreVisits(String number){
+        return entityManager.createQuery(
+                        "SELECT p FROM Patient p JOIN p.visits v GROUP BY p HAVING COUNT(v) > :minVisits", PatientEntity.class)
+                .setParameter("minVisits", number)
+                .getResultList();
+    }
+
+    public List<PatientEntity> indPatientsWithTreatmentPackageAbove(TreatmentPackage selected){
+
+        return entityManager.createQuery(
+                        "SELECT p FROM Patient p WHERE p.treatmentPackage > :selected", PatientEntity.class)
+                .setParameter("selected", selected)
+                .getResultList();
+
+    }
+
 }
