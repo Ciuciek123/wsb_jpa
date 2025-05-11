@@ -55,14 +55,14 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
                 .getResultList();
     }
 
-    public List<PatientEntity> findPatientsWithMoreVisits(String number){
+    public List<PatientEntity> findPatientsWithMoreVisits(int moreThan){
         return entityManager.createQuery(
                         "SELECT p FROM PatientEntity p JOIN p.visits v GROUP BY p HAVING COUNT(v) > :minVisits", PatientEntity.class)
-                .setParameter("minVisits", number)
+                .setParameter("minVisits", moreThan)
                 .getResultList();
     }
 
-    public List<PatientEntity> indPatientsWithTreatmentPackageAbove(TreatmentPackage selected){
+    public List<PatientEntity> findPatientsWithTreatmentPackageAbove(TreatmentPackage selected){
 
         return entityManager.createQuery(
                         "SELECT p FROM PatientEntity p WHERE p.treatmentPackage > :selected", PatientEntity.class)

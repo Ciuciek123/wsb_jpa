@@ -45,7 +45,7 @@ INSERT INTO Visit (description, time, doctor_id, patient_id) VALUES
                                                                  ('Wizyta pediatryczna', '2024-03-13 14:00:00', 4, 4),
                                                                  ('Badanie dermatologiczne', '2024-03-14 16:45:00', 5, 5),
                                                                  ('Zabieg chirurgiczny', '2024-03-15 08:20:00', 6, 6),
-                                                                 ('Konsultacja endokrynologiczna', '2024-03-16 12:10:00', 7, 7),
+                                                                 ('Konsultacja endokrynologiczna', '2024-03-16 12:10:00', 7, 1),
                                                                  ('Diagnoza onkologiczna', '2024-03-17 13:50:00', 8, 8),
                                                                  ('Terapia psychiatryczna', '2024-03-18 15:30:00', 9, 9),
                                                                  ('Badanie urologiczne', '2024-03-19 17:00:00', 10, 10);
