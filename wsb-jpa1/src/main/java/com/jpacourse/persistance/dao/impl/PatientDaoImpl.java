@@ -15,9 +15,6 @@ import java.util.List;
 @Repository
 public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements PatientDao
 {
-    @PersistenceContext
-    private EntityManager entityManager;
-
     public void addVisitToPatient(Long patientId, Long doctorId, LocalDateTime visitDate, String description) {
         PatientEntity patient = entityManager.find(PatientEntity.class, patientId);
         DoctorEntity doctor = entityManager.find(DoctorEntity.class, doctorId);
