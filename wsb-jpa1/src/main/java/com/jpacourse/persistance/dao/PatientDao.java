@@ -11,7 +11,7 @@ public interface PatientDao extends Dao<PatientEntity, Long>
 {
     public void addVisitToPatient(Long patientId, Long doctorId, LocalDateTime visitDate, String description);
     public List<PatientEntity> findByLastName(String lastName);
-    public List<VisitEntity> findVisits(String id);
-    public List<PatientEntity> findPatientsWithMoreVisits(String number);
+    public List<VisitEntity> findVisits(Long id);
+    public List<PatientEntity> findPatientsWithMoreVisits(int moreThan);
     public List<PatientEntity> findPatientsWithTreatmentPackageAbove(TreatmentPackage selected);
 }

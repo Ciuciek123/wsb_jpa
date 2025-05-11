@@ -49,7 +49,7 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
 
     }
 
-    public List<VisitEntity> findVisits(String id){
+    public List<VisitEntity> findVisits(Long id){
         return entityManager.createQuery("SELECT p.visits FROM PatientEntity p WHERE p.id = :idParam", VisitEntity.class)
                 .setParameter("idParam", id)
                 .getResultList();
